@@ -75,9 +75,9 @@ class _MyHomePageState extends State<MyHomePage> implements DataInf{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: ()async{
-        await  http?.getPosts();
+        await  http?.postData(title: 'titel',userId: 1,bodys: 'body');
         },
-        tooltip: 'Increment',
+        tooltip: 'Add',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

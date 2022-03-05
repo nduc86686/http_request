@@ -30,4 +30,20 @@ class HttpService {
       return null;
     }
   }
+
+  postData({String ?title,String? bodys,int ?userId}) async {
+
+    Data data=Data(body: bodys,title: title,userId: userId);
+    //tạo post
+    Response response = await post(Uri.parse('https://jsonplaceholder.typicode.com/albums'),  headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    }, body: json.encode(data.toJson()));
+
+    int statusCode = response.statusCode;
+    print('status code $statusCode');
+    String body = response.body;
+    print('$body');
+
+  }
+
 }
